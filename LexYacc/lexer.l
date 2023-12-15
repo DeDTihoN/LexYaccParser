@@ -19,8 +19,8 @@ extern int yylex();
 [+]         { yylval.node=new ASTNode("+"); return PLUS; }
 [*]         { yylval.node=new ASTNode("*"); return MULTIPLY; }
 [/]         { yylval.node=new ASTNode("/"); return DIVIDE; }
-[(]         { yylval.node=new ASTNode("(");}
-[)]         { yylval.node=new ASTNode(")");}
+[(]         { yylval.node=new ASTNode("("); return LPAREN;}
+[)]         { yylval.node=new ASTNode(")"); return RPAREN;}
 [ \t]       ; // Пропуск пробілів та табуляцій
 \n          { yylval.node=new ASTNode("Newline"); return NEWLINE; }
 .           { std::cerr << "Unexpected character: " << *yytext << std::endl; }

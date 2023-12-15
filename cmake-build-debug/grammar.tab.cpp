@@ -163,9 +163,9 @@ enum yysymbol_kind_t
   YYSYMBOL_TIMES = 6,                      /* TIMES  */
   YYSYMBOL_DIVIDE = 7,                     /* DIVIDE  */
   YYSYMBOL_NEWLINE = 8,                    /* NEWLINE  */
-  YYSYMBOL_MULTIPLY = 9,                   /* MULTIPLY  */
-  YYSYMBOL_10_ = 10,                       /* '('  */
-  YYSYMBOL_11_ = 11,                       /* ')'  */
+  YYSYMBOL_LPAREN = 9,                     /* LPAREN  */
+  YYSYMBOL_RPAREN = 10,                    /* RPAREN  */
+  YYSYMBOL_MULTIPLY = 11,                  /* MULTIPLY  */
   YYSYMBOL_YYACCEPT = 12,                  /* $accept  */
   YYSYMBOL_exxpresionsList = 13,           /* exxpresionsList  */
   YYSYMBOL_finalexpr = 14,                 /* finalexpr  */
@@ -175,7 +175,7 @@ typedef enum yysymbol_kind_t yysymbol_kind_t;
 
 
 /* Second part of user prologue.  */
-#line 78 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 80 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
 
     class ASTNode* start_token_value;
 
@@ -503,7 +503,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  7
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   26
+#define YYLAST   27
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  12
@@ -515,7 +515,7 @@ union yyalloc
 #define YYNSTATES  19
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   264
+#define YYMAXUTOK   266
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -533,7 +533,7 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      10,    11,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -555,15 +555,15 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8,     9
+       5,     6,     7,     8,     9,    10,    11
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    84,    84,    85,    88,    91,    92,    93,    94,    95,
-      96
+       0,    86,    86,    87,    90,    93,    94,    95,    96,    97,
+      98
 };
 #endif
 
@@ -580,7 +580,7 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
 static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "NUMBER", "PLUS",
-  "MINUS", "TIMES", "DIVIDE", "NEWLINE", "MULTIPLY", "'('", "')'",
+  "MINUS", "TIMES", "DIVIDE", "NEWLINE", "LPAREN", "RPAREN", "MULTIPLY",
   "$accept", "exxpresionsList", "finalexpr", "expr", YY_NULLPTR
 };
 
@@ -591,7 +591,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-4)
+#define YYPACT_NINF (-6)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -605,8 +605,8 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-       0,    -4,     0,     2,    -4,    17,     9,    -4,    -4,     0,
-       0,     0,    -4,     0,    -4,    -3,    -3,    -4,    -4
+      18,    -6,    18,     1,    -6,     8,    13,    -6,    -6,    18,
+      18,    18,    -6,    18,    -6,    -5,    -5,    -6,    -6
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -621,7 +621,7 @@ static const yytype_int8 yydefact[] =
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -4,    -4,    12,    -2
+      -6,    -6,     0,    -2
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -635,24 +635,24 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       6,     0,     7,     1,    11,     1,    13,    15,    16,    17,
-       2,    18,     2,     9,    10,     8,    11,     0,    13,     0,
-      14,     9,    10,     0,    11,    12,    13
+       6,     7,    11,     8,     1,     0,    13,    15,    16,    17,
+       2,    18,     9,    10,     0,    11,    12,     9,    10,    13,
+      11,     1,     0,    14,    13,     0,     0,     2
 };
 
 static const yytype_int8 yycheck[] =
 {
-       2,    -1,     0,     3,     7,     3,     9,     9,    10,    11,
-      10,    13,    10,     4,     5,     3,     7,    -1,     9,    -1,
-      11,     4,     5,    -1,     7,     8,     9
+       2,     0,     7,     3,     3,    -1,    11,     9,    10,    11,
+       9,    13,     4,     5,    -1,     7,     8,     4,     5,    11,
+       7,     3,    -1,    10,    11,    -1,    -1,     9
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,    10,    13,    14,    15,    15,     0,    14,     4,
-       5,     7,     8,     9,    11,    15,    15,    15,    15
+       0,     3,     9,    13,    14,    15,    15,     0,    14,     4,
+       5,     7,     8,    11,    10,    15,    15,    15,    15
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
@@ -1130,56 +1130,56 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* exxpresionsList: exxpresionsList finalexpr  */
-#line 84 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 86 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
                                            { std::cout << "Result: " << (yyvsp[0].node)->getValue() << std::endl; (yyval.node) = new ASTNode("ExxpresionsList", (yyvsp[0].node)->getValue()); (yyval.node)->addChild((yyvsp[-1].node)); (yyval.node)->addChild((yyvsp[0].node)); start_token_value = (yyval.node);}
 #line 1136 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.cpp"
     break;
 
   case 3: /* exxpresionsList: finalexpr  */
-#line 85 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 87 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
                 { std::cout << "Result: " << (yyvsp[0].node)->getValue() << std::endl; (yyval.node) = new ASTNode("ExxpresionsList", (yyvsp[0].node)->getValue()); (yyval.node)->addChild((yyvsp[0].node)); start_token_value = (yyval.node);}
 #line 1142 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.cpp"
     break;
 
   case 4: /* finalexpr: expr NEWLINE  */
-#line 88 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 90 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
                         {(yyval.node)=new ASTNode("FinalExpr", (yyvsp[-1].node)->getValue());(yyval.node)->addChild((yyvsp[-1].node)); (yyval.node) -> print(0);}
 #line 1148 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.cpp"
     break;
 
   case 5: /* expr: NUMBER  */
-#line 91 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 93 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
                     { (yyval.node) = new ASTNode("Expression", (yyvsp[0].node)->getValue()); (yyval.node) -> addChild((yyvsp[0].node));}
 #line 1154 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.cpp"
     break;
 
   case 6: /* expr: expr PLUS expr  */
-#line 92 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 94 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
                         { (yyval.node) = evaluate((yyvsp[-2].node), '+', (yyvsp[0].node)); }
 #line 1160 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.cpp"
     break;
 
   case 7: /* expr: expr MINUS expr  */
-#line 93 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 95 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
                         { (yyval.node) = evaluate((yyvsp[-2].node), '-', (yyvsp[0].node)); }
 #line 1166 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.cpp"
     break;
 
   case 8: /* expr: expr MULTIPLY expr  */
-#line 94 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 96 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
                            { (yyval.node) = evaluate((yyvsp[-2].node), '*', (yyvsp[0].node)); }
 #line 1172 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.cpp"
     break;
 
   case 9: /* expr: expr DIVIDE expr  */
-#line 95 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 97 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
                         { (yyval.node) = evaluate((yyvsp[-2].node), '/', (yyvsp[0].node)); }
 #line 1178 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.cpp"
     break;
 
-  case 10: /* expr: '(' expr ')'  */
-#line 96 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
-                        { (yyval.node) = new ASTNode("Expression", (yyvsp[-1].node)->getValue()); (yyval.node) -> addChild(new ASTNode("Operator: (")); (yyval.node) -> addChild((yyvsp[-1].node)); (yyval.node) -> addChild(new ASTNode("Operator: )"));}
+  case 10: /* expr: LPAREN expr RPAREN  */
+#line 98 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+                              { (yyval.node) = new ASTNode("Expression", (yyvsp[-1].node)->getValue()); (yyval.node) -> addChild(new ASTNode("Operator: (")); (yyval.node) -> addChild((yyvsp[-1].node)); (yyval.node) -> addChild(new ASTNode("Operator: )"));}
 #line 1184 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.cpp"
     break;
 
@@ -1377,4 +1377,4 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 99 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"
+#line 101 "D:/Programs_C++/parser_c++/LexYacc/grammar.y"

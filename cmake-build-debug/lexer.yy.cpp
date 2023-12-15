@@ -769,12 +769,12 @@ YY_RULE_SETUP
 case 7:
 YY_RULE_SETUP
 #line 22 "D:/Programs_C++/parser_c++/LexYacc/lexer.l"
-{ yylval.node=new ASTNode("(");}
+{ yylval.node=new ASTNode("("); return LPAREN;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 23 "D:/Programs_C++/parser_c++/LexYacc/lexer.l"
-{ yylval.node=new ASTNode(")");}
+{ yylval.node=new ASTNode(")"); return RPAREN;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP

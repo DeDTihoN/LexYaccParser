@@ -60,7 +60,9 @@ extern int yydebug;
     TIMES = 261,                   /* TIMES  */
     DIVIDE = 262,                  /* DIVIDE  */
     NEWLINE = 263,                 /* NEWLINE  */
-    MULTIPLY = 264                 /* MULTIPLY  */
+    LPAREN = 264,                  /* LPAREN  */
+    RPAREN = 265,                  /* RPAREN  */
+    MULTIPLY = 266                 /* MULTIPLY  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -73,7 +75,7 @@ union YYSTYPE
 
     class ASTNode *node;
 
-#line 77 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.hpp"
+#line 79 "D:/Programs_C++/parser_c++/cmake-build-debug/grammar.tab.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;

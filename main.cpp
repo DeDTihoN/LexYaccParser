@@ -66,13 +66,10 @@ int main() {
         return 1;
     }
 
-    // Generate DOT representation and write it to the file
     generateDot(root, dotFile);
 
-    // Close the DOT file
     dotFile.close();
 
-    // Convert DOT to image using Graphviz (example assumes Graphviz is installed)
 
     std::system("\"C:\\Program Files\\Graphviz\\bin\\dot.exe\" -Tpng -o ast.png ast.dot");
 

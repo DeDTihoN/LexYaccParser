@@ -65,6 +65,7 @@ ASTNode* evaluate(ASTNode* left, char op, ASTNode* right) {
 %token <node> NUMBER
 %token <node> PLUS MINUS TIMES DIVIDE
 %token <node> NEWLINE
+%token <node> LPAREN RPAREN
 
 %type <node> expr
 %type <node> finalexpr
@@ -72,6 +73,7 @@ ASTNode* evaluate(ASTNode* left, char op, ASTNode* right) {
 
 %left PLUS MINUS
 %left MULTIPLY DIVIDE
+%left LPAREN RPAREN
 
 %start exxpresionsList
 
@@ -93,7 +95,7 @@ expr: NUMBER        { $$ = new ASTNode("Expression", $1->getValue()); $$ -> addC
     | expr MINUS expr   { $$ = evaluate($1, '-', $3); }
     | expr MULTIPLY expr   { $$ = evaluate($1, '*', $3); }
     | expr DIVIDE expr  { $$ = evaluate($1, '/', $3); }
-    | '(' expr ')'      { $$ = new ASTNode("Expression", $2->getValue()); $$ -> addChild(new ASTNode("Operator: (")); $$ -> addChild($2); $$ -> addChild(new ASTNode("Operator: )"));}
+    | LPAREN expr RPAREN      { $$ = new ASTNode("Expression", $2->getValue()); $$ -> addChild(new ASTNode("Operator: (")); $$ -> addChild($2); $$ -> addChild(new ASTNode("Operator: )"));}
     ;
 
 %%

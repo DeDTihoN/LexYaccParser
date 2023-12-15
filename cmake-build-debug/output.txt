@@ -1,0 +1,25 @@
+ExxpresionsList 7.25
+  ExxpresionsList 5.25
+    FinalExpr 5.25
+      Expression 5.25
+        Expression 6.25
+          Expression 8
+            Expression 2
+              Number 2
+            Operator: +
+            Expression 6
+              Expression 2
+                Number 2
+              Operator: *
+              Expression 3
+                Number 3
+          Operator: -
+          Expression 1.75
+            Expression 7
+              Number 7
+            Operator: /
+            Expression 4
+              Number 4
+        Operator: -
+        Expression 1
+          Number 1
